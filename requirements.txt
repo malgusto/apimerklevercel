@@ -1,12 +1,11 @@
-pip==24.0
+pip
 joblib
-spacy
-pydantic
 pandas
 scikit-learn
 goose3
 uvicorn
 fastapi
+spacy
 # selenium
 # es_core_news_sm @ https://github.com/explosion/spacy-models/releases/download/es_core_news_sm-3.0.0/es_core_news_sm-3.0.0.tar.gz
 gensim
