@@ -2,7 +2,7 @@
 import joblib 
 import pandas as pd
 from sklearn.cluster import KMeans
-import spacy, es_core_news_lg, collections
+import spacy
 from goose3 import Goose
 from sklearn.cluster import KMeans
 import uvicorn
@@ -11,7 +11,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
-from capturescreenshot import *
+# from capturescreenshot import *
 
 # Cargando K-Means
 vectorizadorKmeans=joblib.load("./modelos/k-means/vectorizer_kmeans")
@@ -35,16 +35,16 @@ diccionariolsag = joblib.load('./modelos/lsa-gensim/Diccionario_LSA_GENSIM')
 
 # Creamos la API
 app = FastAPI()
-app.mount("/capturas", StaticFiles(directory="capturas"), name="capturas")
-origins = ["*"]
+# app.mount("/capturas", StaticFiles(directory="capturas"), name="capturas")
+# origins = ["*"]
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=origins,
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+# )
 
 @app.get('/')
 async def index():
@@ -53,7 +53,8 @@ async def index():
 @app.get('/predict/')
 async def predict(url: str = Query(..., min_length=30, max_length=500)):
     result = predecir_articulo(url)
-    return {"url": url,"titulo":result[0], "etikmeans": result[1].upper(),"etildag":  result[2].upper(),"etildask":  result[3].upper(),"etilsag":  result[4].upper(),"screenshot": result[5],"sobretexto": result[6]}
+    # return {"url": url,"titulo":result[0], "etikmeans": result[1].upper(),"etildag":  result[2].upper(),"etildask":  result[3].upper(),"etilsag":  result[4].upper(),"screenshot": result[5],"sobretexto": result[6]}
+    return {"url": url,"titulo":result[0], "etikmeans": result[1].upper(),"etildag":  result[2].upper(),"etildask":  result[3].upper(),"etilsag":  result[4].upper(),"screenshot": "1","sobretexto": result[6]}
 
 
 # Función que predice la noticia
@@ -132,7 +133,8 @@ def predecir_articulo(noticia):
   
   
     
-  url_screenshot="http://127.0.0.1:8000/"+captscreehshot(noticia)
+  # url_screenshot="http://127.0.0.1:8000/"+captscreehshot(noticia)
+  url_screenshot="1.jpg"
     
 
   datos_web=[titulo_noticia,etikmeans,etildag,etildask,etilsag,url_screenshot,sobre_texto]

@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: es-core-news-sm
+Version: 3.0.0
+Summary: Spanish pipeline optimized for CPU. Components: tok2vec, morphologizer, parser, senter, ner, attribute_ruler, lemmatizer.
+Home-page: https://explosion.ai
+Author: Explosion
+Author-email: contact@explosion.ai
+License: GNU GPL 3.0
+Description: UNKNOWN
+Platform: UNKNOWN
