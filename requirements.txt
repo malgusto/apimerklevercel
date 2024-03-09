@@ -1,4 +1,5 @@
 joblib
+pydantic
 pandas
 scikit-learn
 spacy
