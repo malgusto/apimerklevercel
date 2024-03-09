@@ -60,7 +60,8 @@ async def predict(url: str = Query(..., min_length=30, max_length=500)):
 # Función que predice la noticia
 def predecir_articulo(noticia):
 
-  nlp = spacy.load('es_core_news_sm', disable=['parser', 'senter', 'ner', 'attribute_ruler'])
+  # nlp = spacy.load('es_core_news_sm', disable=['parser', 'senter', 'ner', 'attribute_ruler'])
+  nlp = spacy.load()
 
   def limpiar(doc):
       doc_procesado = []
