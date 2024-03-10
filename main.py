@@ -117,8 +117,8 @@ def predecir_articulo(noticia):
   
   
     
-  # url_screenshot="http://127.0.0.1:8000/"+captscreehshot(noticia)
-  url_screenshot=""
+  url_screenshot="/"+captscreehshot(noticia)
+  
     
 
   datos_web=[titulo_noticia,etikmeans,etildag,etildask,etilsag,url_screenshot,sobre_texto]
