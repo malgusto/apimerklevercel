@@ -13,9 +13,9 @@ from fastapi import FastAPI, HTTPException, Request, Response
 from fastapi.responses import JSONResponse
 import requests
 from fastapi.staticfiles import StaticFiles
-import selenium
+# import selenium
 
-from capturescreenshot import *
+# from capturescreenshot import *
 
 # Cargando K-Means
 vectorizadorKmeans=joblib.load("./modelos/k-means/vectorizer_kmeans")
@@ -38,7 +38,7 @@ categoriaslsag = joblib.load('./modelos/lsa-gensim/Categorias_mejor_modelo_LSA_G
 diccionariolsag = joblib.load('./modelos/lsa-gensim/Diccionario_LSA_GENSIM')
 
 
-app.mount("/capturas", StaticFiles(directory="capturas"), name="capturas")
+# app.mount("/capturas", StaticFiles(directory="capturas"), name="capturas")
 
 
 # Función que predice la noticia
@@ -117,8 +117,8 @@ def predecir_articulo(noticia):
   
   
     
-  url_screenshot="https://apimerklevercel-production.up.railway.app/"+captscreehshot(noticia)
-  
+  # url_screenshot="https://apimerklevercel-production.up.railway.app/"+captscreehshot(noticia)
+  url_screenshot="1"
     
 
   datos_web=[titulo_noticia,etikmeans,etildag,etildask,etilsag,url_screenshot,sobre_texto]
