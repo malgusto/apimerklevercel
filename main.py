@@ -138,14 +138,10 @@ async def index():
   return {"Hola":"Empezamos"}
 
 @app.get('/predict/')
-  try:
-        result = predecir_articulo(url)
-        return {"url": url,"titulo":result[0], "etikmeans": result[1].upper(),"etildag":  result[2].upper(),"etildask":  result[3].upper(),"etilsag":  result[4].upper(),"screenshot":"" ,"sobretexto": result[6]}
-    except Exception as e:
-        return {"error": str(e)}
-
-   # return {"url": url,"titulo":result[0], "etikmeans": result[1].upper(),"etildag":  result[2].upper(),"etildask":  result[3].upper(),"etilsag":  result[4].upper(),"screenshot": result[5],"sobretexto": result[6]}
-  
+async def predict(url: str = Query(..., min_length=30, max_length=500)):
+    result = predecir_articulo(url)
+    # return {"url": url,"titulo":result[0], "etikmeans": result[1].upper(),"etildag":  result[2].upper(),"etildask":  result[3].upper(),"etilsag":  result[4].upper(),"screenshot": result[5],"sobretexto": result[6]}
+    return {"url": url,"titulo":result[0], "etikmeans": result[1].upper(),"etildag":  result[2].upper(),"etildask":  result[3].upper(),"etilsag":  result[4].upper(),"screenshot":"" ,"sobretexto": result[6]}
 
 
 if __name__ == "__main__":
