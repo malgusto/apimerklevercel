@@ -33,8 +33,7 @@ modelolsag = joblib.load('./modelos/lsa-gensim/Mejor_modelo_LSA_GENSIM')
 categoriaslsag = joblib.load('./modelos/lsa-gensim/Categorias_mejor_modelo_LSA_GENSIM')
 diccionariolsag = joblib.load('./modelos/lsa-gensim/Diccionario_LSA_GENSIM')
 
-# Creamos la API
-app = FastAPI()
+
 # app.mount("/capturas", StaticFiles(directory="capturas"), name="capturas")
 # origins = ["*"]
 
@@ -130,7 +129,9 @@ def predecir_articulo(noticia):
   datos_web=[titulo_noticia,etikmeans,etildag,etildask,etilsag,url_screenshot,sobre_texto]
   return datos_web
 
-#Probando a ver
+# Creamos la API
+app = FastAPI()
+
 @app.get('/')
 async def index():
   return {"Hola":"Empezamos"}
