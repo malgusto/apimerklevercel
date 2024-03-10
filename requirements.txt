@@ -1,4 +1,3 @@
-pip
 joblib
 pandas
 scikit-learn
