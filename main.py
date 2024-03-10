@@ -139,9 +139,9 @@ async def index():
 
 @app.get('/predict/')
 async def predict(url: str = Query(..., min_length=30, max_length=500)):
-    # result = predecir_articulo(url)
-    # return {"url": url,"titulo":result[0], "etikmeans": result[1].upper(),"etildag":  result[2].upper(),"etildask":  result[3].upper(),"etilsag":  result[4].upper(),"screenshot": result[5],"sobretexto": result[6]}
-    return {"url": "Hola"}
+    result = predecir_articulo(url)
+    return {"url": url,"titulo":result[0], "etikmeans": result[1].upper(),"etildag":  result[2].upper(),"etildask":  result[3].upper(),"etilsag":  result[4].upper(),"screenshot": result[5],"sobretexto": result[6]}
+    
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
