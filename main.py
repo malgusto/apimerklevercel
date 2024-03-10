@@ -2,7 +2,8 @@
 import joblib 
 import pandas as pd
 from sklearn.cluster import KMeans
-import spacy
+import spacy 
+import es_core_news_sm
 from goose3 import Goose
 from sklearn.cluster import KMeans
 import uvicorn
@@ -40,7 +41,7 @@ diccionariolsag = joblib.load('./modelos/lsa-gensim/Diccionario_LSA_GENSIM')
 # Función que predice la noticia
 def predecir_articulo(noticia):
 
-  nlp = spacy.load()
+  nlp = es_core_news_sm.load()
 
   def limpiar(doc):
       doc_procesado = []
