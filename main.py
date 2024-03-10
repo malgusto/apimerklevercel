@@ -87,7 +87,11 @@ def predecir_articulo(noticia):
   # Categoriza la nueva noticia usando el modelo LDA
   categorias_noticia = modeloldag.get_document_topics(corpus)
   tema_principal = max(categorias_noticia, key=lambda x: x[1])[0]
-  etildag=categoriasldag[tema_principal]
+  if tema_principal > 0:
+     etildag = categoriasldag[tema_principal - 1]
+  else:
+     etildag = categoriasldag[tema_principal]
+
   
   #############
   # LDA-SKL
