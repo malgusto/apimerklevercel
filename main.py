@@ -115,7 +115,7 @@ def predecir_articulo(noticia):
   
     
   # url_screenshot="http://127.0.0.1:8000/"+captscreehshot(noticia)
-  url_screenshot="1.jpg"
+  url_screenshot=""
     
 
   datos_web=[titulo_noticia,etikmeans,etildag,etildask,etilsag,url_screenshot,sobre_texto]
@@ -141,7 +141,7 @@ async def index():
 async def predict(url: str = Query(..., min_length=30, max_length=500)):
     result = predecir_articulo(url)
     # return {"url": url,"titulo":result[0], "etikmeans": result[1].upper(),"etildag":  result[2].upper(),"etildask":  result[3].upper(),"etilsag":  result[4].upper(),"screenshot": result[5],"sobretexto": result[6]}
-    return {"url": url,"titulo":result[0], "etikmeans": result[1].upper(),"etildag":  result[2].upper(),"etildask":  result[3].upper(),"etilsag":  result[4].upper(),"screenshot": "1","sobretexto": result[6]}
+    return {"url": url,"titulo":result[0], "etikmeans": result[1].upper(),"etildag":  result[2].upper(),"etildask":  result[3].upper(),"etilsag":  result[4].upper(),"screenshot":"" ,"sobretexto": result[6]}
 
 
 if __name__ == "__main__":
