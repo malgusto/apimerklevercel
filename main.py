@@ -9,6 +9,9 @@ import uvicorn
 from fastapi import FastAPI,Query
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi import FastAPI, HTTPException, Request, Response
+from fastapi.responses import JSONResponse
+import requests
 from fastapi.staticfiles import StaticFiles
 
 # from capturescreenshot import *
@@ -122,15 +125,12 @@ def predecir_articulo(noticia):
 
 # Creamos la API
 app = FastAPI()
-origins = ["*"]
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+@app.middleware("http")
+async def add_cors_header(request: Request, call_next):
+    response = await call_next(request)
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    return response
 
 @app.get('/')
 async def index():
