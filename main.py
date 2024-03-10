@@ -13,22 +13,9 @@ from fastapi.staticfiles import StaticFiles
 
 # Función que predice la noticia
 def predecir_articulo(noticia):
+  
 
-  g=Goose()
-  articulo=g.extract(url=noticia)
-  titulo_noticia = articulo.title
-  #Extraemos el contenido de la pagina
-  nueva_noticia_limpiada = articulo.cleaned_text
-  limpiada= nueva_noticia_limpiada
-
-  etikmeans="Km"
-  etildag="lda"
-  etildask="lda111
-  etilsag="ssdd"
-  url_screenshot=""
-    
-
-  datos_web=[titulo_noticia,etikmeans,etildag,etildask,etilsag,url_screenshot,sobre_texto]
+  datos_web=["1","2","3","4","5","6","7"]
   return datos_web
 
 # Creamos la API
