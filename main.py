@@ -8,8 +8,8 @@ from sklearn.cluster import KMeans
 import uvicorn
 from fastapi import FastAPI,Query
 from fastapi import FastAPI
-# from fastapi.middleware.cors import CORSMiddleware
-# from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 # from capturescreenshot import *
 
@@ -35,15 +35,7 @@ diccionariolsag = joblib.load('./modelos/lsa-gensim/Diccionario_LSA_GENSIM')
 
 
 # app.mount("/capturas", StaticFiles(directory="capturas"), name="capturas")
-# origins = ["*"]
 
-# app.add_middleware(
-#     CORSMiddleware,
-#     allow_origins=origins,
-#     allow_credentials=True,
-#     allow_methods=["*"],
-#     allow_headers=["*"],
-# )
 
 # Función que predice la noticia
 def predecir_articulo(noticia):
@@ -131,6 +123,15 @@ def predecir_articulo(noticia):
 
 # Creamos la API
 app = FastAPI()
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get('/')
 async def index():
