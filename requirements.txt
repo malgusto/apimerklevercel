@@ -4,7 +4,7 @@ scikit-learn
 goose3
 uvicorn
 fastapi
-spacy==3.6.0
+spacy>=3.2.3,<3.3.0
 #selenium
 es_core_news_sm
 gensim
