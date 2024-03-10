@@ -117,7 +117,7 @@ def predecir_articulo(noticia):
   
   
     
-  url_screenshot="/"+captscreehshot(noticia)
+  url_screenshot="https://apimerklevercel-production.up.railway.app/"+captscreehshot(noticia)
   
     
 
