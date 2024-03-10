@@ -6,3 +6,4 @@ goose3
 uvicorn
 fastapi
 gensim
+selenium
