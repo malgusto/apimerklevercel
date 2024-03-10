@@ -13,9 +13,9 @@ from fastapi import FastAPI, HTTPException, Request, Response
 from fastapi.responses import JSONResponse
 import requests
 from fastapi.staticfiles import StaticFiles
-#import selenium
+import selenium
 
-#from capturescreenshot import *
+from capturescreenshot import *
 
 # Cargando K-Means
 vectorizadorKmeans=joblib.load("./modelos/k-means/vectorizer_kmeans")
