@@ -38,7 +38,7 @@ categoriaslsag = joblib.load('./modelos/lsa-gensim/Categorias_mejor_modelo_LSA_G
 diccionariolsag = joblib.load('./modelos/lsa-gensim/Diccionario_LSA_GENSIM')
 
 
-# app.mount("/capturas", StaticFiles(directory="capturas"), name="capturas")
+app.mount("/capturas", StaticFiles(directory="capturas"), name="capturas")
 
 
 # Función que predice la noticia
